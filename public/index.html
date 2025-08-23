@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <h1>Gestão de Alunos</h1>
+
+    <input type="hidden" placeholder="ID do aluno">
+    <input type="text" placeholder="Nome do aluno">
+    <input type="text" placeholder="Idade do aluno">
+    <input type="text" placeholder="Sexo">
+    <input type="text" placeholder="Matricula">
+    <button onclick="inserirAluno()">Salvar</button>
+    <button onclick="atualizarAluno()">Atualizar</button>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Sexo</th>
+                <th>Matricula</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        </tbody>
+    </table>
+
+
+    <script>
+        function pegarAlunos() {
+            url = "https://curly-giggle-76q669w9q6j2r5w7-3000.app.github.dev/alunos/"
+            fetch(url)
+                .then((res) => {
+                    return res.json()
+                })
+                .then((alunos) => {
+                    console.log('listando', alunos)
+                    dados = document.querySelector("tbody")
+
+                    dados.innerHTML = ""
+
+                    for (let i = 0; i < alunos.length; i++) {
+                        dados.innerHTML += `<tr>
+                                                <td>${alunos[i].id}</td>
+                                                <td>${alunos[i].nome}</td>
+                                                <td>${alunos[i].idade}</td>
+                                                <td>${alunos[i].sexo}</td>
+                                                <td>${alunos[i].matricula}</td>
+                                                <td>
+                                                    <button onclick="editarAluno(${alunos[i].id})">Editar</button>
+                                                    <button onclick="excluirAluno(${alunos[i].id})">Excluir</button>
+                                                </td>
+                                            </tr>`
+                    }
+
+                })
+        }
+        pegarAlunos()
+
+        function inserirAluno() {
+            inputs = document.querySelectorAll("input")
+
+            aluno = {
+                nome: inputs[1].value,
+                idade: inputs[2].value,
+                sexo: inputs[3].value,
+                matricula: inputs[4].value
+            }
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(aluno)
+            })
+                .then((res) => { return res.json() })
+                .then((alunoSalvo) => {
+                    pegarAlunos()
+
+                    inputs[0].value = ""
+                    inputs[1].value = ""
+                    inputs[2].value = ""
+                    inputs[3].value = ""
+                    inputs[4].value = ""
+                })
+        }
+
+        function editarAluno(idAluno) {
+            console.log("vou editar o aluno", idAluno)
+            inputs = document.querySelectorAll("input")
+
+            fetch(url + idAluno)
+                .then((res) => { return res.json() })
+                .then((aluno) => {
+                    console.log("aluno veio", aluno)
+                    inputs[0].value = aluno.id
+                    inputs[1].value = aluno.nome
+                    inputs[2].value = aluno.idade
+                    inputs[3].value = aluno.sexo
+                    inputs[4].value = aluno.matricula
+                })
+        }
+
+        function atualizarAluno() {
+            inputs = document.querySelectorAll("input")
+
+            idAluno = inputs[0].value
+
+            aluno = {
+                nome: inputs[1].value,
+                idade: inputs[2].value,
+                sexo: inputs[3].value,
+                matricula: inputs[4].value
+            }
+
+            fetch(url + idAluno, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(aluno)
+            })
+                .then((res) => { return res.json() })
+                .then((alunoSalvo) => {
+                    pegarAlunos()
+
+                    inputs[0].value = ""
+                    inputs[1].value = ""
+                    inputs[2].value = ""
+                    inputs[3].value = ""
+                    inputs[4].value = ""
+                })
+        }
+
+        function excluirAluno(idAluno) {
+            fetch(url + idAluno, {
+                method: 'DELETE'
+            })
+                .then((res) => { return res.json() })
+                .then((alunoSalvo) => {
+                    pegarAlunos()
+                })
+
+        }
+
+    </script>
+</body>
+
+</html>

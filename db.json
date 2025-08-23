@@ -1,0 +1,25 @@
+{
+  "alunos": [
+    {
+      "nome": "Aline lima",
+      "matricula": 45645,
+      "sexo": "f",
+      "idade": 40,
+      "id": 1
+    },
+    {
+      "nome": "Onorato",
+      "idade": "45",
+      "sexo": "MASCULI",
+      "matricula": "4564564",
+      "id": 9
+    },
+    {
+      "nome": "Aline lima SILVA",
+      "idade": "40",
+      "sexo": "f",
+      "matricula": "45645",
+      "id": 10
+    }
+  ]
+}
