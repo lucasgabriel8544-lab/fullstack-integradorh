@@ -18,8 +18,42 @@
       "nome": "Aline lima SILVA",
       "idade": "40",
       "sexo": "f",
-      "matricula": "45645",
+      "matricula": "456466",
       "id": 10
+    },
+    {
+      "nome": "Hamanda",
+      "idade": "18",
+      "sexo": "f",
+      "matricula": "050725",
+      "id": 11
+    },
+    {
+      "nome": "Kauê ",
+      "idade": "26",
+      "sexo": "masculino",
+      "matricula": "929384",
+      "id": 12
+    }
+  ],
+  "disciplinas": [
+    {
+      "nome": "Desenvolvimento Fullstack",
+      "curso": "ADS",
+      "turno": "Noite",
+      "id": 1
+    },
+    {
+      "nome": "Psicologia Clínica",
+      "curso": "Psicologia",
+      "turno": "Noite",
+      "id": 2
+    },
+    {
+      "nome": "Ed.Física",
+      "curso": "Condicionamento Físico",
+      "turno": "Manhã",
+      "id": 3
     }
   ]
 }

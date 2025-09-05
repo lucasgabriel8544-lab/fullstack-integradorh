@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <h1>Gestão de Alunos</h1>
+
+    <input type="hidden" placeholder="ID do aluno">
+    <input type="text" placeholder="Nome do aluno">
+    <input type="text" placeholder="Idade do aluno">
+    <input type="text" placeholder="Sexo">
+    <input type="text" placeholder="Matricula">
+    <button onclick="inserirAluno()">Salvar</button>
+    <button onclick="atualizarAluno()">Atualizar</button>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Sexo</th>
+                <th>Matricula</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        </tbody>
+    </table>
+
+
+    <script src="js/alunos-crud/atualizarAluno.js"></script>
+    <script src="js/alunos-crud/editarAluno.js"></script>
+    <script src="js/alunos-crud/excluirAluno.js"></script>
+    <script src="js/alunos-crud/inserirAluno.js"></script>
+    <script src="js/alunos-crud/pegarAluno.js"></script>
+    <script src="js/alunos-crud/pegarAlunos.js"></script>
+</body>
+
+</html>

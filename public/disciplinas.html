@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <h1>Gestão de disciplinas</h1>
+
+    <input type="hidden" placeholder="ID da disciplina">
+    <input type="text" placeholder="Nome da disciplina">
+    <input type="text" placeholder="Curso da disciplina">
+    <input type="text" placeholder="Turno">
+    <button onclick="inserirDisciplina()">Salvar</button>
+    <button onclick="atualizarDisciplina()">Atualizar</button>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Curso</th>
+                <th>Turno</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        </tbody>
+    </table>
+
+
+    <script src="js/disciplinas-crud/atualizarDisciplina.js"></script>
+    <script src="js/disciplinas-crud/editarDisciplina.js"></script>
+    <script src="js/disciplinas-crud/excluirDisciplina.js"></script>
+    <script src="js/disciplinas-crud/inserirDisciplina.js"></script>
+    <script src="js/disciplinas-crud/pegarDisciplina.js"></script>
+    <script src="js/disciplinas-crud/pegarDisciplinas.js"></script>
+</body>
+
+</html>
